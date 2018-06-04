@@ -1,0 +1,39 @@
+{
+  "name": "cerebro-windows-store-apps",
+  "version": "0.1.0",
+  "dependencies": {
+    "cerebro-tools": "^0.1.8",
+    "cerebro-ui": "^0.0.16",
+    "node-powershell": "^3.3.1",
+    "url-loader": "^0.5.7"
+  },
+  "devDependencies": {
+    "cerebro-scripts": "0.0.25"
+  },
+  "main": "dist/index.js",
+  "keywords": [
+    "cerebro",
+    "cerebro-plugin",
+    "windows",
+    "store",
+    "app",
+    "uwp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taroninak/cerebro-windows-store-apps.git"
+  },
+  "author": "Taron Petrosyan <tgtaron@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taroninak/cerebro-windows-store-apps/issues"
+  },
+  "homepage": "https://github.com/taroninak/cerebro-windows-store-apps#readme",
+  "scripts": {
+    "start": "cerebro-scripts start",
+    "build": "cerebro-scripts build",
+    "test": "cerebro-scripts test",
+    "clear": "cerebro-scripts clear",
+    "prepublish": "yarn clear && yarn build"
+  }
+}
