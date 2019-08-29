@@ -35,7 +35,7 @@ const normalize = (string => {
         .map(el => {
             const name = el.Name.replace(/(\w+)App/, '$1')
             .replace('Microsoft', '')
-            .replace('Windows', '')
+            .replace(/Windows(?!\w)/, '') //fix name not full begin with "Windows", like WindowsTerminal
             .replace(/\.+/, '.')
             .split('.');
 
@@ -55,7 +55,16 @@ exports.getApps = memoize(() => {
 
     ps.addCommand('Get-AppxPackage');
 
-    return ps.invoke().then(normalize);
+    return ps.invoke()
+			.then(normalize)
+			.then((result) => {
+				setTimeout(() => {
+					try {
+						ps.dispose();
+					} catch(e) {}
+				}, 10);
+				return result;
+			});
 });
 
 exports.startApp = ((packageName) => {
